@@ -11,7 +11,7 @@ app.use(function (req, res, next) {
       res.redirect('https://'+req.hostname+req.url);
     }
 
-})
+});
 
 app.use(express.static('public'));
 
