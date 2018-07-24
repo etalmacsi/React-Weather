@@ -24925,7 +24925,15 @@
 	            'div',
 	            null,
 	            React.createElement(Nav, null),
-	            this.props.children
+	            React.createElement(
+	                'div',
+	                { className: 'row' },
+	                React.createElement(
+	                    'div',
+	                    { className: 'columns medium-6 large-4 small-centered' },
+	                    this.props.children
+	                )
+	            )
 	        );
 	    }
 	});
@@ -26330,14 +26338,57 @@
 
 	var React = __webpack_require__(8);
 
+	var _require = __webpack_require__(166),
+	    Link = _require.Link;
+
 	var Examples = React.createClass({
 	    displayName: 'Examples',
 
 	    render: function render() {
 	        return React.createElement(
-	            'h2',
+	            'div',
 	            null,
-	            'Example component!'
+	            React.createElement(
+	                'h1',
+	                { className: 'text-center' },
+	                'Examples!'
+	            ),
+	            React.createElement(
+	                'p',
+	                null,
+	                'Here is a few examples to try out:'
+	            ),
+	            React.createElement(
+	                'ol',
+	                null,
+	                React.createElement(
+	                    'li',
+	                    null,
+	                    React.createElement(
+	                        Link,
+	                        { to: '/?location=Kecskem\xE9t' },
+	                        'Kecskem\xE9t'
+	                    )
+	                ),
+	                React.createElement(
+	                    'li',
+	                    null,
+	                    React.createElement(
+	                        Link,
+	                        { to: '/?location=Szeged' },
+	                        'Szeged'
+	                    )
+	                ),
+	                React.createElement(
+	                    'li',
+	                    null,
+	                    React.createElement(
+	                        Link,
+	                        { to: '/?location=Budapest' },
+	                        'Budapest'
+	                    )
+	                )
+	            )
 	        );
 	    }
 	});
