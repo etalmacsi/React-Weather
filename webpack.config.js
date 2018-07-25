@@ -35,6 +35,8 @@ module.exports = {
       CoordForm:'app/components/CoordForm.jsx',
       CoordMessage:'app/components/CoordMessage.jsx',
       openCoord:'api/openCoord.jsx',
+      ErrorModal:'app/components/ErrorModal.jsx',
+      applicationStyles:'app/styles/app.scss',
     },
     extensions: ['', '.js', '.jsx']
   },

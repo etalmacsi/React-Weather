@@ -3,8 +3,18 @@ let {Link,IndexLink}=require('react-router');
 
 let Nav = React.createClass({
     onSearch:function(e){
-      alert('Not implemented yet')
+        e.preventDefault();
+
+        let location= this.refs.search.value;
+        let encodedLocation= encodeURIComponent(location);
+
+        if(location.length>0){
+            this.refs.search.value='';
+            window.location.hash='#/?location=' + encodedLocation;
+        }
+
     },
+
 
     render:function () {
         return(
@@ -19,16 +29,15 @@ let Nav = React.createClass({
                     </li>
 
                     <li>
-                        <Link to="/about" activeClassName="active" activeStyle={{fontWeight:'bold'}}>About</Link>
+                        <Link to="/coordinate" activeClassName="active" activeStyle={{fontWeight:'bold'}}>Coordinates</Link>
                     </li>
 
                     <li>
                         <Link to="/examples" activeClassName="active" activeStyle={{fontWeight:'bold'}}>Example</Link>
 
                     </li>
-
                     <li>
-                        <Link to="/coordinate" activeClassName="active" activeStyle={{fontWeight:'bold'}}>Coordinates</Link>
+                        <Link to="/about" activeClassName="active" activeStyle={{fontWeight:'bold'}}>About</Link>
                     </li>
 
                 </ul>
@@ -39,7 +48,7 @@ let Nav = React.createClass({
                 <form onSubmit={this.onSearch}>
                   <ul className="menu">
                     <li>
-                        <input type="search" placeholder="Search..."/>
+                        <input type="search" placeholder="Search..." ref="search"/>
                     </li>
 
                     <li>

@@ -19,7 +19,7 @@ let CoordForm = React.createClass({
        return(
            <form onSubmit={this.OnFormSubmit}>
                <label>
-                   <input type="text" ref="location" placeholder="Enter the name of the city!"/>
+                   <input type="search" ref="location" placeholder="Enter the name of the city!"/>
                    <button className="button expanded hollow button">
                        Get Coordinates!
                    </button>

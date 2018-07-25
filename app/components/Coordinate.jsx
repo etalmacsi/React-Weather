@@ -2,7 +2,7 @@ let React = require('react');
 let CoordForm=require('CoordForm');
 let CoordMessage=require('CoordMessage');
 let openCoord=require('openCoord');
-
+let ErrorModal=require('ErrorModal');
 
 let Coordinate = React.createClass({
     getInitialState:function(){
@@ -16,6 +16,7 @@ let Coordinate = React.createClass({
 
         this.setState({
             isLoading: true,
+            errorMessage: undefined,
         });
 
         openCoord.getCoord(location).then(function (result) {
@@ -26,10 +27,11 @@ let Coordinate = React.createClass({
                 lat: result.lat,
                 isLoading: false,
             });
-        },function (errorMessage) {
-            alert(errorMessage);
+        },function (e) {
+
             that.setState({
                isLoading:false,
+               errorMessage:e.message,
             });
         });
 
@@ -38,7 +40,7 @@ let Coordinate = React.createClass({
 
     render: function () {
 
-        let {location , lon , lat,isLoading}=this.state;
+        let {location , lon , lat,isLoading, errorMessage}=this.state;
 
         function renderMessage() {
             if(isLoading){
@@ -49,11 +51,19 @@ let Coordinate = React.createClass({
             }
         }
 
+        function renderError() {
+            if(typeof errorMessage === 'string'){
+                return (<ErrorModal message={errorMessage}/>)
+            }
+
+        }
+
         return(
          <div>
-            <h1 className="text-center">Get Coordinates!</h1>
+            <h1 className="text-center page-title">Get Coordinates!</h1>
              <CoordForm onSearch={this.handleSearch}/>
              {renderMessage()}
+             {renderError()}
         </div>
         );
     }
