@@ -4,7 +4,7 @@ let CoordMessage= React.createClass({
    render:function () {
        return(
            <div>
-               <h3>The Coordinates of {this.props.location}!</h3><br/>
+               <h3 className="text-center">The Coordinates of {this.props.location}!</h3><br/>
                <p>Longitude: {this.props.lon}</p>
                <p>Latidude: {this.props.lat}</p>
            </div>

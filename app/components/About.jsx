@@ -13,10 +13,10 @@ let About = React.createClass({
                 </p>
                 <ul>
                     <li>
-                        <a href="https://facebook.githu.io/react">React</a> - This was the JavaScrpit framework used.
+                        <a href="https://facebook.github.io/react">React</a> - This was the JavaScrpit framework used.
                     </li>
                     <li>
-                        <a href="http://openweathermap.irg">Open Weather Map</a> - I used Open weather Map to search for weather data by city name.
+                        <a href="http://openweathermap.org">Open Weather Map</a> - I used Open weather Map to search for weather data by city name.
                     </li>
                     <li>
                         <a href="https://dashboard.heroku.com/">Heroku</a> - Used for deploying my webapplication.

@@ -25092,7 +25092,7 @@
 	            if (isLoading) {
 	                return React.createElement(
 	                    'h3',
-	                    null,
+	                    { className: 'text-center' },
 	                    'Fetching weather...'
 	                );
 	            } else if (temp && location) {
@@ -25104,8 +25104,8 @@
 	            'div',
 	            null,
 	            React.createElement(
-	                'h2',
-	                null,
+	                'h1',
+	                { className: 'text-center' },
 	                'Get weather!'
 	            ),
 	            React.createElement(WeatherForm, { onSearch: this.handleSearch }),
@@ -25120,22 +25120,22 @@
 /* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(8);
 
 	var WeatherMessage = React.createClass({
-	    displayName: 'WeatherMessage',
+	    displayName: "WeatherMessage",
 
 	    render: function render() {
 	        return React.createElement(
-	            'div',
-	            null,
-	            'The temperature in ',
+	            "h3",
+	            { className: "text-center" },
+	            "The temperature in ",
 	            this.props.location,
-	            '  is ',
+	            "  is ",
 	            this.props.temp,
-	            '!'
+	            "!"
 	        );
 	    }
 	});
@@ -25178,7 +25178,7 @@
 	                    React.createElement('input', { type: 'text', placeholder: 'Enter city name', ref: 'location' }),
 	                    React.createElement(
 	                        'button',
-	                        null,
+	                        { className: 'button expanded hollow button' },
 	                        'Get weather!'
 	                    )
 	                )
@@ -26346,7 +26346,7 @@
 	                    null,
 	                    React.createElement(
 	                        "a",
-	                        { href: "https://facebook.githu.io/react" },
+	                        { href: "https://facebook.github.io/react" },
 	                        "React"
 	                    ),
 	                    " - This was the JavaScrpit framework used."
@@ -26356,7 +26356,7 @@
 	                    null,
 	                    React.createElement(
 	                        "a",
-	                        { href: "http://openweathermap.irg" },
+	                        { href: "http://openweathermap.org" },
 	                        "Open Weather Map"
 	                    ),
 	                    " - I used Open weather Map to search for weather data by city name."
@@ -26469,22 +26469,30 @@
 
 	    getInitialState: function getInitialState() {
 	        return {
-	            location: 'Szeged'
+	            isLoading: false
 	        };
 	    },
 
 	    handleSearch: function handleSearch(location) {
 	        var that = this;
 
+	        this.setState({
+	            isLoading: true
+	        });
+
 	        openCoord.getCoord(location).then(function (result) {
 
 	            that.setState({
 	                location: location,
 	                lon: result.lon,
-	                lat: result.lat
+	                lat: result.lat,
+	                isLoading: false
 	            });
 	        }, function (errorMessage) {
 	            alert(errorMessage);
+	            that.setState({
+	                isLoading: false
+	            });
 	        });
 	    },
 
@@ -26492,19 +26500,28 @@
 	        var _state = this.state,
 	            location = _state.location,
 	            lon = _state.lon,
-	            lat = _state.lat;
+	            lat = _state.lat,
+	            isLoading = _state.isLoading;
 
 
 	        function renderMessage() {
-	            return React.createElement(CoordMessage, { location: location, lon: lon, lat: lat });
+	            if (isLoading) {
+	                return React.createElement(
+	                    'p',
+	                    null,
+	                    'Fetching location..'
+	                );
+	            } else if (lon && lat) {
+	                return React.createElement(CoordMessage, { location: location, lon: lon, lat: lat });
+	            }
 	        }
 
 	        return React.createElement(
 	            'div',
 	            null,
 	            React.createElement(
-	                'h2',
-	                null,
+	                'h1',
+	                { className: 'text-center' },
 	                'Get Coordinates!'
 	            ),
 	            React.createElement(CoordForm, { onSearch: this.handleSearch }),
@@ -26549,7 +26566,7 @@
 	                React.createElement('input', { type: 'text', ref: 'location', placeholder: 'Enter the name of the city!' }),
 	                React.createElement(
 	                    'button',
-	                    null,
+	                    { className: 'button expanded hollow button' },
 	                    'Get Coordinates!'
 	                )
 	            )
@@ -26563,35 +26580,35 @@
 /* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(8);
 
 	var CoordMessage = React.createClass({
-	    displayName: 'CoordMessage',
+	    displayName: "CoordMessage",
 
 	    render: function render() {
 	        return React.createElement(
-	            'div',
+	            "div",
 	            null,
 	            React.createElement(
-	                'h3',
-	                null,
-	                'The Coordinates of ',
+	                "h3",
+	                { className: "text-center" },
+	                "The Coordinates of ",
 	                this.props.location,
-	                '!'
+	                "!"
 	            ),
-	            React.createElement('br', null),
+	            React.createElement("br", null),
 	            React.createElement(
-	                'p',
+	                "p",
 	                null,
-	                'Longitude: ',
+	                "Longitude: ",
 	                this.props.lon
 	            ),
 	            React.createElement(
-	                'p',
+	                "p",
 	                null,
-	                'Latidude: ',
+	                "Latidude: ",
 	                this.props.lat
 	            )
 	        );
