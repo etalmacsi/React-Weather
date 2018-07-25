@@ -26312,18 +26312,76 @@
 /* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(8);
 
 	var About = React.createClass({
-	    displayName: 'About',
+	    displayName: "About",
 
 	    render: function render() {
 	        return React.createElement(
-	            'h2',
+	            "div",
 	            null,
-	            'About component!'
+	            React.createElement(
+	                "h1",
+	                { className: "text-center" },
+	                "About!"
+	            ),
+	            React.createElement(
+	                "p",
+	                null,
+	                "This is a weather application build on React. I have built this for The Complete React Webb App Developer Course."
+	            ),
+	            React.createElement(
+	                "p",
+	                null,
+	                "Here are some tools I used:"
+	            ),
+	            React.createElement(
+	                "ul",
+	                null,
+	                React.createElement(
+	                    "li",
+	                    null,
+	                    React.createElement(
+	                        "a",
+	                        { href: "https://facebook.githu.io/react" },
+	                        "React"
+	                    ),
+	                    " - This was the JavaScrpit framework used."
+	                ),
+	                React.createElement(
+	                    "li",
+	                    null,
+	                    React.createElement(
+	                        "a",
+	                        { href: "http://openweathermap.irg" },
+	                        "Open Weather Map"
+	                    ),
+	                    " - I used Open weather Map to search for weather data by city name."
+	                ),
+	                React.createElement(
+	                    "li",
+	                    null,
+	                    React.createElement(
+	                        "a",
+	                        { href: "https://dashboard.heroku.com/" },
+	                        "Heroku"
+	                    ),
+	                    " - Used for deploying my webapplication."
+	                ),
+	                React.createElement(
+	                    "li",
+	                    null,
+	                    React.createElement(
+	                        "a",
+	                        { href: "https://github.com/etalmacsi" },
+	                        "GitHub"
+	                    ),
+	                    " - My GitHub profile."
+	                )
+	            )
 	        );
 	    }
 	});
